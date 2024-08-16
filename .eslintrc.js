@@ -1,13 +1,13 @@
 module.exports = {
   extends: ['standard', 'plugin:prettier/recommended'],
-  plugins: ['mocha'],
+  plugins: ['jest'],
   parserOptions: {
     sourceType: 'module'
   },
   env: {
     es6: true,
     node: true,
-    mocha: true
+    jest: true
   },
   rules: {
     'prettier/prettier': ['error', { singleQuote: true, semi: false }],

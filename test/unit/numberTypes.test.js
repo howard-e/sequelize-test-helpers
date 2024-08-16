@@ -1,43 +1,41 @@
-const { expect } = require('chai')
-
 const { dataTypes } = require('../../src')
 
 describe('src/dataTypes#numeric', () => {
   const doTest = dataType => {
     describe(`Testing ${dataType}`, () => {
-      context('non function', () => {
+      describe('non function', () => {
         it(`supports ${dataType} with ZEROFILL`, () => {
-          expect(dataTypes[dataType].ZEROFILL).to.exist
+          expect(dataTypes[dataType].ZEROFILL).toBeTruthy()
         })
 
         it(`supports ${dataType} with UNSIGNED`, () => {
-          expect(dataTypes[dataType](10).UNSIGNED).to.exist
+          expect(dataTypes[dataType](10).UNSIGNED).toBeTruthy()
         })
 
         it(`supports ${dataType} with UNSIGNED.ZEROFILL`, () => {
-          expect(dataTypes[dataType].UNSIGNED.ZEROFILL).to.exist
+          expect(dataTypes[dataType].UNSIGNED.ZEROFILL).toBeTruthy()
         })
 
         it(`supports ${dataType} with ZEROFILL.UNSIGNED`, () => {
-          expect(dataTypes[dataType].ZEROFILL.UNSIGNED).to.exist
+          expect(dataTypes[dataType].ZEROFILL.UNSIGNED).toBeTruthy()
         })
       })
 
-      context('function', () => {
+      describe('function', () => {
         it(`supports ${dataType}() with ZEROFILL`, () => {
-          expect(dataTypes[dataType](10).ZEROFILL).to.exist
+          expect(dataTypes[dataType](10).ZEROFILL).toBeTruthy()
         })
 
         it(`supports ${dataType}() with UNSIGNED`, () => {
-          expect(dataTypes[dataType](10).UNSIGNED).to.exist
+          expect(dataTypes[dataType](10).UNSIGNED).toBeTruthy()
         })
 
         it(`supports ${dataType}() with UNSIGNED.ZEROFILL`, () => {
-          expect(dataTypes[dataType](10).UNSIGNED.ZEROFILL).to.exist
+          expect(dataTypes[dataType](10).UNSIGNED.ZEROFILL).toBeTruthy()
         })
 
         it(`supports ${dataType}() with ZEROFILL.UNSIGNED`, () => {
-          expect(dataTypes[dataType](10).ZEROFILL.UNSIGNED).to.exist
+          expect(dataTypes[dataType](10).ZEROFILL.UNSIGNED).toBeTruthy()
         })
       })
     })

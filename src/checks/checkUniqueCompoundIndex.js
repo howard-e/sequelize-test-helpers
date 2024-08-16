@@ -1,4 +1,3 @@
-const { expect } = require('chai')
 const { serialCommaList } = require('../utils')
 
 /**
@@ -10,7 +9,7 @@ const checkUniqueCompoundIndex = instance => indexes => {
       instance.indexes.find(
         index => index.unique === true && index.fields.join('') === indexes.join('')
       )
-    ).not.to.be.undefined
+    ).not.toBeUndefined()
   })
 }
 

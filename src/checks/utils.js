@@ -1,8 +1,7 @@
-const { expect } = require('chai')
 const { serialCommaList } = require('../utils')
 
 // if unique is true then expect index.unique to be true too, but
-// if unique is false then index.unique can simply be be falsy
+// if unique is false then index.unique can simply be falsy
 const matchUniqueness = (index, unique) => (unique ? index.unique === unique : !index.unique)
 const prefix = unique => (unique ? 'n ' : ' non-')
 
@@ -12,19 +11,19 @@ const checkSingleIndex = (instance, unique) => indexName => {
       instance.indexes.find(
         index => matchUniqueness(index, unique) && index.fields[0] === indexName
       )
-    ).not.to.be.undefined
+    ).not.toBeUndefined()
   })
 }
 
 const checkAllIndexes = (instance, unique) => indexNames => {
-  context(`indexed a${prefix(unique)}unique composite of [${serialCommaList(indexNames)}]`, () => {
+  describe(`indexed a${prefix(unique)}unique composite of [${serialCommaList(indexNames)}]`, () => {
     indexNames.forEach((indexName, i) => {
       it(`includes ${indexName} at ${i}`, () => {
         expect(
           instance.indexes.find(
             index => matchUniqueness(index, unique) && index.fields[i] === indexName
           )
-        ).not.to.be.undefined
+        ).not.toBeUndefined()
       })
     })
   })
