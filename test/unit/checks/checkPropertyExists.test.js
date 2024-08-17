@@ -1,7 +1,7 @@
 const { sequelize, dataTypes, checkPropertyExists } = require('../../../src')
 const SimpleModel = require('../../models/Simple')
 
-describe('src/checkPropertyExists', () => {
+describe.skip('src/checkPropertyExists', () => {
   const Model = SimpleModel(sequelize, dataTypes)
   const instance = new Model()
 

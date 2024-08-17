@@ -1,17 +1,17 @@
 const { sequelize, dataTypes, checkModelName } = require('../../../src')
 const SimpleModel = require('../../models/Simple')
 
-const Model = SimpleModel(sequelize, dataTypes)
+describe('src/checkModelName', () => {
+  const Model = SimpleModel(sequelize, dataTypes)
 
-describe('happy path', () => {
-  checkModelName(Model)('Simple')
-})
+  describe('happy path', () => {
+    checkModelName(Model)('Simple')
+  })
 
-describe('unhappy path', () => {
-  const modelName = 'Not So Simple'
-
-  it(`fails the test, is named '${modelName}'`, () =>
-    expect(() => {
-      checkModelName(Model)(modelName)
-    }).toThrow())
+  describe('unhappy path', () => {
+    it('fails the test', () =>
+      expect(() => {
+        checkModelName(Model)('Not So Simple')
+      }).toThrow())
+  })
 })

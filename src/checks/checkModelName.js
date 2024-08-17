@@ -1,10 +1,7 @@
 const checkModelName = model => modelName => {
-  if (model.modelName !== modelName) {
-    throw new Error(
-      `Expected 'model.modelName' to be the same as 'modelName'. Received ${model.modelName} and ${modelName} instead.`
-    )
-  }
-  return modelName
+  it(`is named '${modelName}'`, () => {
+    expect(model.modelName).toEqual(modelName)
+  })
 }
 
 module.exports = checkModelName

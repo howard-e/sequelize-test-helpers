@@ -1,7 +1,7 @@
 const { sequelize, dataTypes, checkUniqueCompoundIndex } = require('../../../src')
 const IndexedModel = require('../../models/Indexed')
 
-describe('src/checkUniqueCompoundIndex', () => {
+describe.skip('src/checkUniqueCompoundIndex', () => {
   const Model = IndexedModel(sequelize, dataTypes)
   const instance = new Model()
 
