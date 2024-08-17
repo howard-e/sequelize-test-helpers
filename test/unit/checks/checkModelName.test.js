@@ -1,7 +1,7 @@
 const { sequelize, dataTypes, checkModelName } = require('../../../src')
 const SimpleModel = require('../../models/Simple')
 
-describe.skip('src/checkModelName', () => {
+describe('src/checkModelName', () => {
   const Model = SimpleModel(sequelize, dataTypes)
 
   describe('happy path', () => {
@@ -9,9 +9,12 @@ describe.skip('src/checkModelName', () => {
   })
 
   describe('unhappy path', () => {
-    it('fails the test', () =>
+    const modelName = 'Not So Simple'
+
+    it(`fails the test, is named '${modelName}'`, () => {
       expect(() => {
-        checkModelName(Model)('Not So Simple')
-      }).toThrow())
+        checkModelName(Model)(modelName)
+      }).toThrow()
+    })
   })
 })

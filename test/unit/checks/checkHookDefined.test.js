@@ -10,9 +10,11 @@ describe('src/checkHookDefined', () => {
   })
 
   describe('when hooks are not defined', () => {
-    it("fails the test, defined the 'not a hook' hook", () => {
+    const hookName = 'not a hook'
+
+    it(`fails the test, defined the ${hookName} hook`, () => {
       expect(() => {
-        checkHookDefined(instance)('not a hook')
+        checkHookDefined(instance)(hookName)
       }).toThrow()
     })
   })
