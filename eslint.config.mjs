@@ -27,6 +27,8 @@ export default [
 
     rules: {
       'no-unused-expressions': 0,
+      'no-unused-vars': 1,
+      'padded-blocks': 0,
       'n/exports-style': ['error', 'module.exports']
     }
   },
