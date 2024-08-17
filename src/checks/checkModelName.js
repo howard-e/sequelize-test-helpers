@@ -1,7 +1,9 @@
 const checkModelName = model => modelName => {
-  it(`is named '${modelName}'`, () => {
-    expect(model.modelName).toEqual(modelName)
-  })
+  if (model.modelName !== modelName) {
+    throw new Error()
+  }
+
+  return modelName
 }
 
 module.exports = checkModelName

@@ -1,7 +1,9 @@
 const checkHookDefined = instance => hookName => {
-  it(`defined the ${hookName} hook`, () => {
-    expect(instance.hooks[hookName]).toBeFunction()
-  })
+  if (typeof instance.hooks[hookName] !== 'function') {
+    throw new Error()
+  }
+
+  return instance.hooks[hookName]
 }
 
 module.exports = checkHookDefined
