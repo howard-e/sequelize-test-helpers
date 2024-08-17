@@ -1,7 +1,7 @@
 const { sequelize, dataTypes, checkPropertyExists } = require('../../../src')
 const SimpleModel = require('../../models/Simple')
 
-describe.skip('src/checkPropertyExists', () => {
+describe('src/checkPropertyExists', () => {
   const Model = SimpleModel(sequelize, dataTypes)
   const instance = new Model()
 
@@ -10,9 +10,10 @@ describe.skip('src/checkPropertyExists', () => {
   })
 
   describe('unhappy path', () => {
-    it('fails the test', () =>
+    it('fails the test', () => {
       expect(() => {
         checkPropertyExists(instance)('no name')
-      }).toThrow())
+      }).toThrow()
+    })
   })
 })
